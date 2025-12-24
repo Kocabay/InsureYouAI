@@ -1,0 +1,44 @@
+﻿@model List<Contact>
+@{
+    ViewData["Title"] = "ContactList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex align-items-center">
+            <h5 class="mb-0">İletişim Listesi</h5>
+            <form class="ms-auto position-relative">
+                <div class="position-absolute top-50 translate-middle-y search-icon px-3"><i class="bi bi-search"></i></div>
+                <input class="form-control ps-5" type="text" placeholder="Arama Yapınız...">
+            </form>
+        </div>
+        <div class="table-responsive mt-3">
+            <table class="table align-middle">
+                <thead class="table-secondary">
+                    <tr>
+                        <th>Email</th>
+                        <th>Telefon</th>
+                        <th>Adres</th>
+                        <th>Acıklama</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                <tr>
+                    <td>@item.Email</td>
+                    <td>@item.Phone</td>
+                    <td>@item.Address</td>
+                    <td>@item.Description</td>
+                    <td><a href="/Contact/UpdateContact/@item.ContactId" class="text-warning" title="Düzenle"><i class="bi bi-pencil-fill"></i></a></td>
+                    <td><a href="/Contact/DeleteContact/@item.ContactId" class="text-danger" title="Sil"><i class="bi bi-trash-fill"></i></a></td>
+                 </tr>
+                    }
+            </table>
+            <a href="/Contact/CreateContact/" class="btn btn-success">Yeni İletişim Ekle</a>
+        </div>
+    </div>
+</div>
