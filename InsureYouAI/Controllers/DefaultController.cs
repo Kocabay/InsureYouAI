@@ -8,5 +8,25 @@ namespace InsureYouAI.Controllers
         {
             return View();
         }
+
+        public PartialViewResult SendMessage()
+        {
+            return PartialView();
+        }
+        [HttpPost]
+        public PartialViewResult SendMessage(string message)
+        {
+            return PartialView();
+        }
+
+        public PartialViewResult SubscribeEmail()
+        {
+            return PartialView();
+        }
+        [HttpPost]
+        public PartialViewResult SubscribeEmail(string email)
+        {
+            return PartialView();
+        }
     }
 }
